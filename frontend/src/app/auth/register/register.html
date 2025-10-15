@@ -1,0 +1,51 @@
+<p>register works!</p>
+
+<p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
+<p class="success-message" *ngIf="successMessage">{{ successMessage }}</p>
+
+<div class="register-container">
+  <h2>Crear cuenta</h2>
+
+  <form #registerForm="ngForm" (ngSubmit)="onSubmit()">
+    <input
+      type="email"
+      [(ngModel)]="email"
+      name="email"
+      placeholder="Correo electrónico"
+      required
+    />
+
+    <input
+      type="name"
+      [(ngModel)]="name"
+      name="name"
+      placeholder="Name"
+      required
+    />
+
+    <input
+      type="lastName"
+      [(ngModel)]="lastName"
+      name="lastName"
+      placeholder="Last Name"
+      required
+    />
+
+    <input
+      type="password"
+      [(ngModel)]="password"
+      name="password"
+      placeholder="Contraseña"
+      required
+    />
+
+    <button type="submit">Registrar</button>
+
+    <p>
+      Are you registered?
+      <button type="button" routerLink="/login" class="btn-register">
+        Login
+      </button>
+    </p>
+  </form>
+</div>
