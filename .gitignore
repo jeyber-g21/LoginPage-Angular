@@ -1,11 +1,11 @@
 # Node
 node_modules/
-dist/
+# dist/
 .env
 .env.local
 
 # Build files
-build/
+# build/
 .tmp/
 
 # IDE

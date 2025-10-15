@@ -3,7 +3,7 @@ import bcrypt from "bcryptjs";
 import User, { IUser } from "../models/user.model";
 import { generateToken } from "../utils/generateToken";
 
-//  REGISTRO DE USUARIO
+//  REGISTER USER
 export const registerUser = async (
   req: Request,
   res: Response
@@ -38,7 +38,7 @@ export const registerUser = async (
   }
 };
 
-// 🟣 LOGIN DE USUARIO
+// LOGIN USER
 export const loginUser = async (req: Request, res: Response): Promise<void> => {
   try {
     const { email, password } = req.body;
