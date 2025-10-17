@@ -1,0 +1,37 @@
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 14px 22px;
+  border-radius: 10px;
+  font-weight: 500;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.4s ease;
+  z-index: 9999;
+  pointer-events: none;
+
+  &.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &.hide {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  &.success {
+    background: linear-gradient(135deg, #00c853, #009624);
+  }
+
+  &.error {
+    background: linear-gradient(135deg, #d32f2f, #b71c1c);
+  }
+
+  &.info {
+    background: linear-gradient(135deg, #2196f3, #1565c0);
+  }
+}

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Auth } from '../auth.service';
@@ -13,20 +13,37 @@ import { RouterLink } from '@angular/router';
 export class Login {
   email = '';
   password = '';
-  errorMessage = '';
+  message = '';
+  type: 'success' | 'error' | 'info' = 'info';
+  toastVisible = false;
 
   constructor(private authService: Auth) {}
+  // OnIniti() {
+  //   this.showToast('ERROR');
+  // }
 
   onLogin() {
-    this.errorMessage = '';
+    this.message = '';
     this.authService
       .login({ email: this.email, password: this.password })
       .subscribe({
-        next: (res) => console.log('Login correct', res),
+        next: (res) => {
+          console.log('Login correct', res);
+          this.showToast('Login suseccfully', 'success');
+        },
         error: (err) => {
           console.error('Error to login', err);
-          this.errorMessage = err.error?.message;
+          //this.errorMessage = err.error?.message;
+          this.showToast(err.status + ': ' + err.error.message, 'error');
         },
       });
+  }
+  showToast(msg: string, type: 'success' | 'error' | 'info') {
+    this.message = msg;
+    this.type = type;
+    this.toastVisible = true;
+    setTimeout(() => {
+      this.toastVisible = false;
+    }, 4000);
   }
 }

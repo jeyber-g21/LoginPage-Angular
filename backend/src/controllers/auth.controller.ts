@@ -102,11 +102,65 @@ export const forgotPassword = async (req: Request, res: Response) => {
       to: email,
       subject: "Restablecer contraseña",
       html: `
-        <h3>Hola ${user.name},</h3>
-        <p>Haz clic en el siguiente enlace para restablecer tu contraseña:</p>
-        <a href="${resetLink}" target="_blank">${resetLink}</a>
-        <p>Este enlace expira en 15 minutos.</p>
-      `,
+    <div style="
+      font-family: Arial, sans-serif;
+      background-color: #f4f7fa;
+      color: #333;
+      padding: 30px;
+      text-align: center;
+    ">
+      <div style="
+        max-width: 480px;
+        background-color: #ffffff;
+        margin: 0 auto;
+        border-radius: 10px;
+        padding: 30px 20px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      ">
+
+        <img src="https://cdn-icons-png.flaticon.com/512/2910/2910768.png" 
+          alt="Reset Password" 
+          style="width: 80px; margin-bottom: 15px;" />
+
+        <h2 style="color: #0d47a1;">Restablece tu contraseña</h2>
+
+        <p style="font-size: 16px; line-height: 1.5;">
+          Hola <strong>${
+            user.name
+          }</strong>, hemos recibido una solicitud para restablecer tu contraseña.
+        </p>
+
+        <p style="font-size: 15px; color: #555;">
+          Haz clic en el siguiente botón para continuar. Este enlace expirará en <strong>15 minutos</strong>.
+        </p>
+
+        <a href="${resetLink}" target="_blank" 
+          style="
+            display: inline-block;
+            margin: 20px 0;
+            background: linear-gradient(45deg, #1976d2, #42a5f5);
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+          ">
+          🔐 Restablecer contraseña
+        </a>
+
+        <p style="font-size: 13px; color: #888;">
+          Si no solicitaste este cambio, simplemente ignora este mensaje.
+        </p>
+
+        <hr style="border: none; height: 1px; background: #eee; margin: 25px 0;" />
+
+        <p style="font-size: 12px; color: #aaa;">
+          © ${new Date().getFullYear()} Soporte Técnico. Todos los derechos reservados.
+        </p>
+      </div>
+    </div>
+  `,
     });
 
     res.json({ message: "Correo enviado para restablecer la contraseña" });

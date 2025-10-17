@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Login } from './login/login';
 import { Register } from './register/register';
 import { RouterModule } from '@angular/router';
+import { Toast } from './toast/toast';
 
 @NgModule({
   imports: [CommonModule, FormsModule, RouterModule, Login, Register],
