@@ -29,7 +29,7 @@ export class Login {
       .subscribe({
         next: (res) => {
           console.log('Login correct', res);
-          this.showToast('Login suseccfully', 'success');
+          this.showToast('Login successfully', 'success');
         },
         error: (err) => {
           console.error('Error to login', err);

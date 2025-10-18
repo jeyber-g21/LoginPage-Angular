@@ -10,18 +10,17 @@ import { CommonModule } from '@angular/common';
 export class Toast implements OnInit {
   @Input() message: string = '';
   @Input() type: 'success' | 'error' | 'info' = 'info';
-  @Input() duration: number = 3000; // tiempo en ms
-
-  visible = false;
+  @Input() duration: number = 4000; // tiempo en ms
+  @Input() toastVisible: boolean = false;
 
   ngOnInit() {
     this.show();
   }
 
   show() {
-    this.visible = true;
+    this.toastVisible = true;
     setTimeout(() => {
-      this.visible = false;
+      this.toastVisible = false;
     }, this.duration);
   }
 }
