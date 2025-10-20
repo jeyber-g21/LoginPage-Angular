@@ -1,66 +1,54 @@
 /* From Uiverse.io by ammarsaa */
+.register-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .form {
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 10px;
   max-width: 350px;
-  padding: 20px;
-  border-radius: 20px;
   position: relative;
-  background-color: #1a1a1a;
-  color: #fff;
   border: 1px solid #333;
+  border-radius: 0.75rem;
+  background-color: rgba(17, 24, 39, 1);
+  padding: 2rem;
+  color: rgba(243, 244, 246, 1);
 }
 
 .title {
-  font-size: 28px;
-  font-weight: 600;
-  letter-spacing: -1px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  padding-left: 30px;
-  color: #00bfff;
-}
-
-.title::before {
-  width: 18px;
-  height: 18px;
-}
-
-.title::after {
-  width: 18px;
-  height: 18px;
-  animation: pulse 1s linear infinite;
-}
-
-.title::before,
-.title::after {
-  position: absolute;
-  content: "";
-  height: 16px;
-  width: 16px;
-  border-radius: 50%;
-  left: 0px;
-  background-color: #00bfff;
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
 }
 
 .message,
 .signin {
   font-size: 14.5px;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(243, 244, 246, 1);
 }
 
 .signin {
   text-align: center;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: rgba(156, 163, 175, 1);
 }
 
 .signin a:hover {
-  text-decoration: underline royalblue;
+  text-decoration: underline rgba(167, 139, 250, 1);
 }
 
 .signin a {
-  color: #00bfff;
+  color: rgba(243, 244, 246, 1);
+  text-decoration: none;
+  font-size: 14px;
 }
 
 .flex {
@@ -77,10 +65,13 @@
   background-color: #333;
   color: #fff;
   width: 85%;
-  padding: 20px 05px 05px 10px;
+
+  border-radius: 0.375rem;
+  border: 1px solid rgba(55, 65, 81, 1);
   outline: 0;
-  border: 1px solid rgba(105, 105, 105, 0.397);
-  border-radius: 10px;
+  background-color: rgba(17, 24, 39, 1);
+  padding: 0.75rem 0.5rem;
+  color: rgba(243, 244, 246, 1);
 }
 
 .form label .input + span {
@@ -100,7 +91,7 @@
 
 .form label .input:focus + span,
 .form label .input:valid + span {
-  color: #00bfff;
+  color: rgba(167, 139, 250, 1);
   top: 0px;
   font-size: 0.7em;
   font-weight: 600;
@@ -109,20 +100,59 @@
 .input {
   font-size: medium;
 }
+.input2 {
+  font-size: medium;
+}
+
+.form label .input2 {
+  background-color: #333;
+  color: #fff;
+  width: 93%;
+
+  border-radius: 0.375rem;
+  border: 1px solid rgba(55, 65, 81, 1);
+  outline: 0;
+  background-color: rgba(17, 24, 39, 1);
+  padding: 0.75rem 0.5rem;
+  color: rgba(243, 244, 246, 1);
+}
+
+.form label .input2 + span {
+  color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  left: 10px;
+  top: 0px;
+  font-size: 0.9em;
+  cursor: text;
+  transition: 0.3s ease;
+}
+
+.form label .input2:placeholder-shown + span {
+  top: 12.5px;
+  font-size: 0.9em;
+}
+
+.form label .input2:focus + span,
+.form label .input2:valid + span {
+  color: rgba(167, 139, 250, 1);
+  top: 0px;
+  font-size: 0.7em;
+  font-weight: 600;
+}
 
 .submit {
   border: none;
   outline: none;
   padding: 10px;
   border-radius: 10px;
-  color: #fff;
+  color: rgba(17, 24, 39, 1);
   font-size: 16px;
   transform: 0.3s ease;
-  background-color: #00bfff;
+  background-color: rgba(167, 139, 250, 1);
 }
 
 .submit:hover {
-  background-color: #00bfff96;
+  cursor: pointer;
 }
 
 @keyframes pulse {
@@ -134,5 +164,51 @@
   to {
     transform: scale(1.8);
     opacity: 0;
+  }
+}
+///////////////////
+///
+///
+.toast {
+  position: fixed;
+  top: 85%;
+  //   right: 49%;
+
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #fff;
+  padding: 14px 24px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  animation: fadeInOut 4s ease;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+
+  &.success {
+    background: linear-gradient(45deg, #00b44b, #379000);
+  }
+
+  &.error {
+    background: linear-gradient(45deg, #d50000, #ff1744);
+  }
+
+  &.info {
+    background: linear-gradient(45deg, #2962ff, #448aff);
+  }
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  10%,
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
   }
 }

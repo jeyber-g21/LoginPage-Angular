@@ -17,29 +17,49 @@ export class Register {
   name = '';
   lastName = '';
   password = '';
+  confirmPassword = '';
   errorMessage = '';
   successMessage = '';
+  message = '';
+  type: 'success' | 'error' | 'info' = 'info';
+  toastVisible = false;
   constructor(private authService: Auth, private router: Router) {}
 
   onSubmit() {
     this.errorMessage = '';
     this.successMessage = '';
-    if (!this.email || !this.name || !this.lastName || !this.password) {
-      this.errorMessage = '⚠️ Todos los campos son obligatorios';
+    if (
+      !this.email ||
+      !this.name ||
+      !this.lastName ||
+      !this.password ||
+      !this.confirmPassword
+    ) {
+      this.showToast('⚠️ Todos los campos son obligatorios', 'error');
+      console.log(this.confirmPassword);
       return;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(this.email)) {
-      this.errorMessage =
-        '📧 Por favor ingresa un correo válido (ejemplo@dominio.com)';
+      this.showToast(
+        '📧 Por favor ingresa un correo válido (ejemplo@dominio.com)',
+        'error'
+      );
+
       return;
     }
 
     const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/;
     if (!passwordRegex.test(this.password)) {
-      this.errorMessage =
-        '🔒 La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un número';
+      this.showToast(
+        '🔒 La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un número',
+        'error'
+      );
+      return;
+    }
+    if (this.password !== this.confirmPassword) {
+      this.showToast('🔒 Password must match', 'error');
       return;
     }
     const user = {
@@ -56,8 +76,15 @@ export class Register {
       },
       error: (err) => {
         console.error(err);
-        alert('Error al registrar usuario ❌');
       },
     });
+  }
+  showToast(msg: string, type: 'success' | 'error' | 'info') {
+    this.message = msg;
+    this.type = type;
+    this.toastVisible = true;
+    setTimeout(() => {
+      this.toastVisible = false;
+    }, 4000);
   }
 }

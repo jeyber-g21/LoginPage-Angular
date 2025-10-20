@@ -1,0 +1,30 @@
+<header class="main-header">
+  <div class="logo-container">
+    <img src="assets/logo.svg" alt="Logo" class="logo" />
+    <h1 class="title">Mi Aplicación</h1>
+  </div>
+
+  <!-- Botón Hamburguesa -->
+  <button class="menu-btn" (click)="toggleMenu()">☰</button>
+
+  <nav class="nav-links" [class.open]="menuOpen">
+    <a routerLink="/home" routerLinkActive="active" (click)="closeMenu()"
+      >Inicio</a
+    >
+    <a routerLink="/about" routerLinkActive="active" (click)="closeMenu()"
+      >Nosotros</a
+    >
+    <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()"
+      >Contacto</a
+    >
+  </nav>
+</header>
+
+<!-- <header class="navbar">
+  <div class="navbar-left">
+    <img src="assets/logo.png" alt="Logo" class="logo" />
+    <span class="title">Mi Aplicación</span>
+  </div>
+
+  <button class="menu-btn">☰</button>
+</header> -->

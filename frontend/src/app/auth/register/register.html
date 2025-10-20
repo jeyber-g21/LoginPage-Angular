@@ -1,67 +1,79 @@
-<p>register works!</p>
+<div class="register-container">
+  <!-- <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
+<p class="success-message" *ngIf="successMessage">{{ successMessage }}</p> -->
 
-<p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
-<p class="success-message" *ngIf="successMessage">{{ successMessage }}</p>
+  <!-- From Uiverse.io by ammarsaa -->
+  <form #registerForm="ngForm" (ngSubmit)="onSubmit()" class="form">
+    <p class="title">Register</p>
+    <p class="message">Signup now and get full access to our app.</p>
+    <div class="flex">
+      <label>
+        <input
+          class="input"
+          type="name"
+          [(ngModel)]="name"
+          name="name"
+          placeholder=""
+          required
+        />
+        <span>Firstname</span>
+      </label>
 
-<!-- From Uiverse.io by ammarsaa -->
-<form #registerForm="ngForm" (ngSubmit)="onSubmit()" class="form">
-  <p class="title">Register</p>
-  <p class="message">Signup now and get full access to our app.</p>
-  <div class="flex">
+      <label>
+        <input
+          class="input"
+          type="lastName"
+          [(ngModel)]="lastName"
+          name="lastName"
+          placeholder=""
+          required
+        />
+        <span>Lastname</span>
+      </label>
+    </div>
+
     <label>
       <input
-        class="input"
-        type="name"
-        [(ngModel)]="name"
-        name="name"
+        class="input2"
+        type="email"
+        [(ngModel)]="email"
+        name="email"
         placeholder=""
         required
       />
-      <span>Firstname</span>
+      <span>Email</span>
     </label>
 
     <label>
       <input
-        class="input"
-        type="lastName"
-        [(ngModel)]="lastName"
-        name="lastName"
+        class="input2"
+        type="password"
+        [(ngModel)]="password"
+        name="password"
         placeholder=""
         required
       />
-      <span>Lastname</span>
+      <span>Password</span>
     </label>
+    <label>
+      <input
+        class="input2"
+        type="password"
+        [(ngModel)]="confirmPassword"
+        name="confirmPassword"
+        placeholder=""
+        required
+      />
+      <span>Confirm password</span>
+    </label>
+    <button type="submit" class="submit">Submit</button>
+
+    <p class="signin">Already have an acount ? <a href="/login">Signin</a></p>
+  </form>
+
+  <div class="toast" *ngIf="toastVisible" [ngClass]="[type]">
+    <div class="toast-content">
+      {{ message }}
+    </div>
   </div>
-
-  <label>
-    <input
-      class="input"
-      type="email"
-      [(ngModel)]="email"
-      name="email"
-      placeholder=""
-      required
-    />
-    <span>Email</span>
-  </label>
-
-  <label>
-    <input
-      class="input"
-      type="password"
-      [(ngModel)]="password"
-      name="password"
-      placeholder=""
-      required
-    />
-    <span>Password</span>
-  </label>
-  <label>
-    <input class="input" type="password" placeholder="" required="" />
-    <span>Confirm password</span>
-  </label>
-  <button type="submit" class="submit">Submit</button>
-
-  <p class="signin">Already have an acount ? <a href="/register">Signin</a></p>
-  <p>Are you registered? <a href="/login">Signin</a></p>
-</form>
+</div>
