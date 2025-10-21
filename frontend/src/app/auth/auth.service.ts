@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root',
 })
 export class Auth {
   private apiUrl = `${environment.apiUrl}/auth`;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   register(data: {
     email: string;
@@ -20,8 +22,45 @@ export class Auth {
   }
 
   login(data: { email: string; password: string }): Observable<any> {
-    return this.http.post(`${this.apiUrl}/login`, data);
+    return this.http.post(`${this.apiUrl}/login`, data).pipe(
+      tap((res: any) => {
+        console.log('Token recibido del backend:', res.token);
+        localStorage.setItem('token', res.token);
+        localStorage.setItem('_id', res._id);
+      })
+    );
   }
+  getToken(): string | null {
+    return localStorage.getItem('token');
+  }
+
+  logout(): void {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+    this.router.navigate(['/login']);
+  }
+
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('token');
+  }
+
+  getUserDashboard(userId: string): Observable<any> {
+    const token = localStorage.getItem('token');
+
+    // 🔐 Verificamos que el token exista
+    if (!token) {
+      throw new Error('No se encontró el token en el localStorage');
+    }
+
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+
+    console.log('📤 Enviando petición con header:', `Bearer ${token}`);
+
+    return this.http.get(`${this.apiUrl}/dashboard/${userId}`, { headers });
+  }
+
   forgotPassword(email: string): Observable<any> {
     return this.http.post(`${this.apiUrl}/forgot-password`, { email });
   }

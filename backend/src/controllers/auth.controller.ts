@@ -69,7 +69,7 @@ export const loginUser = async (req: Request, res: Response): Promise<void> => {
     res.status(500).json({ message: "Error to login" });
   }
 };
-
+//FORGOT PASSWORD
 export const forgotPassword = async (req: Request, res: Response) => {
   const { email } = req.body;
 
@@ -169,7 +169,7 @@ export const forgotPassword = async (req: Request, res: Response) => {
     res.status(500).json({ message: "Error al enviar el correo" });
   }
 };
-
+// RESET PASSWORD
 export const resetPassword = async (req: Request, res: Response) => {
   const { token, password } = req.body;
 
@@ -186,9 +186,9 @@ export const resetPassword = async (req: Request, res: Response) => {
     user.password = await bcrypt.hash(password, 10); // asegúrate de tener bcrypt para hashearla
     await user.save();
 
-    res.json({ message: "Contraseña restablecida con éxito" });
+    res.json({ message: "Password reseted successfully" });
   } catch (error) {
     console.error(error);
-    res.status(400).json({ message: "Token expirado o inválido" });
+    res.status(400).json({ message: "Token expired or invalid" });
   }
 };

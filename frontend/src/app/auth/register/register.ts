@@ -71,11 +71,14 @@ export class Register {
 
     this.authService.register(user).subscribe({
       next: (res) => {
-        this.successMessage = 'Usuario registrado con éxito ✅';
-        this.router.navigate(['/login']);
+        this.successMessage = '';
+        this.showToast('Usuario registrado con éxito ✅', 'success');
+        setTimeout(() => {
+          this.router.navigate(['/login']);
+        }, 4000);
       },
       error: (err) => {
-        console.error(err);
+        this.showToast(err.error.message, 'error');
       },
     });
   }

@@ -14,11 +14,27 @@ export class ForgotPassword {
   email = '';
   message = '';
   error = '';
+  type: 'success' | 'error' | 'info' = 'info';
+  toastVisible = false;
   constructor(private authService: Auth) {}
   onSubmit() {
     this.authService.forgotPassword(this.email).subscribe({
-      next: (res) => (this.message = res.message),
-      error: (err) => (this.error = err.error.message),
+      next: (res) => {
+        this.message = res.message;
+        this.showToast('Email sent successfully', 'success');
+      },
+      error: (err) => {
+        this.error = err.error.message;
+        this.showToast('Email is not registered', 'error');
+      },
     });
+  }
+  showToast(msg: string, type: 'success' | 'error' | 'info') {
+    this.message = msg;
+    this.type = type;
+    this.toastVisible = true;
+    setTimeout(() => {
+      this.toastVisible = false;
+    }, 4000);
   }
 }

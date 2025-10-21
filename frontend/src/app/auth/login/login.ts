@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Auth } from '../auth.service';
 import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ export class Login {
   type: 'success' | 'error' | 'info' = 'info';
   toastVisible = false;
 
-  constructor(private authService: Auth) {}
+  constructor(private authService: Auth, private router: Router) {}
   // OnIniti() {
   //   this.showToast('ERROR');
   // }
@@ -28,8 +29,18 @@ export class Login {
       .login({ email: this.email, password: this.password })
       .subscribe({
         next: (res) => {
-          console.log('Login correct', res);
-          this.showToast('Login successfully', 'success');
+          // console.log('Login correct', res);
+          // console.log('Token actual:', localStorage.getItem('token'));
+
+          const userId = localStorage.getItem('_id');
+          if (userId) {
+            this.showToast('Login successfully', 'success');
+            setTimeout(() => {
+              this.router.navigate([`/dashboard/${userId}`]);
+            }, 4000);
+          } else {
+            console.error('No se encontró el userId en localStorage');
+          }
         },
         error: (err) => {
           console.error('Error to login', err);
