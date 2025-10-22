@@ -1,1 +1,68 @@
-<p>dashboard works!</p>
+<!-- <div class="dashboard-container" *ngIf="user">
+  <h2>{{ message }}</h2>
+
+  <div class="user-info">
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>ID de usuario:</strong> {{ user._id }}</p>
+  </div>
+</div> -->
+<div class="dashboard">
+  <div class="container">
+    <div class="left">
+      <div class="introduccion">
+        <h2>Welcome : {{ user.name }} {{ user.lastName }}</h2>
+        <p>Your personal dashboard overview</p>
+      </div>
+      <div class="container-grid">
+        <div class="col1">
+          <div class="card card1">
+            <div class="profile">
+              <p>Profile</p>
+              <span style="color: green; font-size: 40px">●</span>
+            </div>
+            <div class="imagen-profile">
+              <img src="emojiMujer.jpg" alt="Logo" />
+            </div>
+            <div class="nombre-profile">
+              <p>
+                <strong>{{ user.name }} {{ user.lastName }}</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col2">
+          <div class="card card2">
+            <div class="profile">
+              <p>Profile</p>
+              <span style="color: green; font-size: 30px">●</span>
+            </div>
+            <div class="imagen-profile"></div>
+            <div class="nombre-profile">
+              <p>
+                <strong>{{ user.name }} {{ user.lastName }}</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col3">
+          <div class="card card2">
+            <div class="profile">
+              <p>Profile</p>
+              <span style="color: green; font-size: 30px">●</span>
+            </div>
+            <div class="imagen-profile"></div>
+            <div class="nombre-profile">
+              <p>
+                <strong>{{ user.name }} {{ user.lastName }}</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="right">Derecha</div>
+  </div>
+</div>
+<div *ngIf="!user">
+  <p>Cargando información del usuario...</p>
+</div>

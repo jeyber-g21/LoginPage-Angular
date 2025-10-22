@@ -1,0 +1,113 @@
+/* From Uiverse.io by absoluteSTrange */
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* izquierda más ancha */
+  height: 75vh;
+  margin-top: 80px;
+  width: 90%;
+}
+
+.left {
+  background-color: #007bff;
+  color: white;
+  display: flex;
+
+  flex-direction: column;
+}
+
+.left .introduccion p {
+  margin-top: -1rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: rgba(156, 163, 175, 1);
+}
+
+.right {
+  background-color: #eaeaea;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+///////////
+.container-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* primera más ancha */
+  gap: 1rem;
+  padding: 1rem;
+  justify-content: center;
+  align-items: start;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+///////////////
+/* From Uiverse.io by absoluteSTrange */
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  width: 100%;
+  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(190, 190, 190),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+}
+/* Colores solo para distinguir */
+.card1 {
+  background: #f8f9fa;
+  grid-column: 1/2;
+}
+.card1 .profile {
+  background-color: red;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5%;
+}
+.card1 .nombre-profile {
+  background-color: green;
+  display: flex;
+  justify-content: center;
+}
+.card2 {
+  background: #e9f7ef;
+}
+.card3 {
+  background: #fdecea;
+}
+
+@media (max-width: 1024px) {
+  .container-grid {
+    grid-template-columns: 1.5fr 1fr; /* 2 columnas */
+  }
+}
+
+@media (max-width: 768px) {
+  .container-grid {
+    grid-template-columns: 1fr; /* una debajo de otra */
+  }
+
+  .card {
+    height: 220px;
+  }
+}
+
+/* La primera tarjeta puede ser más alta */
+.card1 {
+  height: 300px;
+  width: 350px;
+}

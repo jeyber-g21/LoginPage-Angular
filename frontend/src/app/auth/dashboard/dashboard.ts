@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Auth } from '../auth.service';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-dashboard',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss',
 })
 export class Dashboard implements OnInit {
-  userData: any;
+  user: any;
+  message: string = '';
 
   constructor(private http: HttpClient, private authService: Auth) {}
 
@@ -18,7 +20,8 @@ export class Dashboard implements OnInit {
       this.authService.getUserDashboard(userId).subscribe({
         next: (res) => {
           console.log('✅ Respuesta del backend:', res);
-          this.userData = res;
+          this.user = res.user;
+          this.message = res.message;
         },
         error: (err) => {
           console.error('❌ Error:', err);
