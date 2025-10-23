@@ -9,14 +9,16 @@
 .container {
   display: grid;
   grid-template-columns: 2fr 1fr; /* izquierda más ancha */
-  height: 75vh;
+  background: white;
+  backdrop-filter: blur(10px); /* efecto de desenfoque */
+  -webkit-backdrop-filter: blur(10px);
+  height: 100vh;
   margin-top: 80px;
   width: 90%;
 }
 
 .left {
-  background-color: #007bff;
-  color: white;
+  color: black;
   display: flex;
 
   flex-direction: column;
@@ -30,10 +32,8 @@
 }
 
 .right {
-  background-color: #eaeaea;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
 }
 ///////////
 .container-grid {
@@ -70,24 +70,126 @@
 .card1 {
   background: #f8f9fa;
   grid-column: 1/2;
+  color: black;
 }
 .card1 .profile {
-  background-color: red;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: 5%;
+  max-height: 50px;
+}
+.card1 .imagen-profile {
+  position: relative;
+  display: inline-block;
+  width: 120px; /* tamaño del avatar */
+  height: 120px;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+.card1 .imagen-space {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+.card1 .imagen-profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ajusta la imagen sin deformarla */
+  border-radius: 50%; /* la hace circular */
+  border: 4px solid #fff; /* borde blanco alrededor */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* sombra ligera */
 }
 .card1 .nombre-profile {
-  background-color: green;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100px;
 }
+.card1 .nombre-profile .p2 {
+  height: 20px;
+  background-color: black;
+
+  margin-top: -1rem;
+  padding: 7px;
+  border-radius: 50%;
+
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: rgba(156, 163, 175, 1);
+}
+
 .card2 {
-  background: #e9f7ef;
+  background: linear-gradient(45deg, #c0c0f0 0%, #ececec 50%, #f9b164 100%);
+  color: black;
+}
+.card2 .profile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card2 .profile p {
+  margin-right: 0;
+  margin-left: 15px;
+}
+.card2 .profile .term-icon {
+  background: rgba(12, 8, 8, 0.1);
+  border: none;
+  color: black;
+  font-size: 1.5rem;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-right: 15px;
+  margin-left: 0;
+  width: 22px;
+}
+.card2 .num-tasks {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+  margin-top: 30px;
+}
+.card2 .num-tasks p {
+  margin-bottom: 0;
+  margin-top: 0;
 }
 .card3 {
   background: #fdecea;
+}
+////////////////////
+///
+.right .header-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.lista-scroll {
+  width: 430px; /* ancho del contenedor */
+  height: 300px; /* alto fijo */
+  overflow-y: auto; /* activa scroll vertical */
+  border: 2px solid #ccc; /* borde opcional */
+  border-radius: 10px; /* esquinas redondeadas */
+  background: #f9f9f9;
+  margin-left: 10px;
+  margin-top: 26px;
+}
+
+.lista-scroll ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lista-scroll li {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
 }
 
 @media (max-width: 1024px) {
@@ -108,6 +210,9 @@
 
 /* La primera tarjeta puede ser más alta */
 .card1 {
-  height: 300px;
+  height: 320px;
   width: 350px;
+}
+.card2 {
+  height: 250px;
 }

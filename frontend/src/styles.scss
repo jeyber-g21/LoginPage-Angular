@@ -7,4 +7,14 @@ body {
   // background: linear-gradient(135deg, #fbfbfc 0%, #ececec 50%, #c3c3c3 100%);
   // color: #fff;
   // font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  background-image: url("./assets/background-picture.png"); /* coloca tu imagen aquí */
+  background-size: cover; /* que ocupe toda la pantalla */
+  background-position: center; /* centrada */
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* opcional: efecto parallax */
+  font-family: "Poppins", sans-serif;
 }
