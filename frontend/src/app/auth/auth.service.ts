@@ -71,4 +71,17 @@ export class Auth {
       password,
     });
   }
+  getMeetings(): Observable<any> {
+    const token = localStorage.getItem('token'); // <-- Obtener el token del usuario
+
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`, // <-- Enviar token al backend
+    });
+
+    // Llamada protegida con token + credenciales
+    return this.http.get(`${this.apiUrl}/meetings`, {
+      headers,
+      withCredentials: true,
+    });
+  }
 }

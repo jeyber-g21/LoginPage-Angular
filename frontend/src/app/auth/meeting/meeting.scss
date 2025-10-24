@@ -1,0 +1,42 @@
+.meetings-container {
+  max-width: 700px;
+  margin: 2rem auto;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  color: #fff;
+
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 2rem;
+
+    input,
+    button {
+      flex: 1 1 45%;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 8px;
+    }
+
+    button {
+      background: #38bdf8;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+        background: #0ea5e9;
+      }
+    }
+  }
+
+  .meeting-card {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+  }
+}

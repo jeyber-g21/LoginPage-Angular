@@ -4,6 +4,7 @@ import User, { IUser } from "../models/user.model";
 import { generateToken } from "../utils/generateToken";
 import jwt from "jsonwebtoken";
 import nodemailer from "nodemailer";
+import Meeting from "../models/meeting.model";
 
 //  REGISTER USER
 export const registerUser = async (
@@ -190,5 +191,33 @@ export const resetPassword = async (req: Request, res: Response) => {
   } catch (error) {
     console.error(error);
     res.status(400).json({ message: "Token expired or invalid" });
+  }
+};
+// CREATE MEETING
+export const createMeeting = async (req, res) => {
+  try {
+    const { description, platform, date, time } = req.body;
+
+    const meeting = new Meeting({
+      _id: req.userId, // <- viene del JWT
+      description,
+      platform,
+      date,
+      time,
+    });
+
+    await meeting.save();
+    res.status(201).json({ message: "Meeting created successfully", meeting });
+  } catch (error) {
+    res.status(500).json({ message: "Error creating meeting", error });
+  }
+};
+// GET MEETINGS
+export const getUserMeetings = async (req, res) => {
+  try {
+    const meetings = await Meeting.find({ _id: req.userId });
+    res.json(meetings);
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching meetings" });
   }
 };

@@ -5,11 +5,13 @@ import { ForgotPassword } from './auth/forgot-password/forgot-password';
 import { ResetPassword } from './auth/reset-password/reset-password';
 import { AuthGuard } from './auth/auth-guard';
 import { Dashboard } from './auth/dashboard/dashboard';
+import { Meeting } from './auth/meeting/meeting';
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: Login },
   { path: 'register', component: Register },
   { path: 'forgot-password', component: ForgotPassword },
   { path: 'reset-password', component: ResetPassword },
+  { path: 'meeting', component: Meeting, canActivate: [AuthGuard] },
   { path: 'dashboard/:id', component: Dashboard, canActivate: [AuthGuard] },
 ];
