@@ -9,12 +9,14 @@ import { CommonModule } from '@angular/common';
   styleUrl: './dashboard.scss',
 })
 export class Dashboard implements OnInit {
+  meetings: any[] = [];
   user: any;
   message: string = '';
 
   constructor(private http: HttpClient, private authService: Auth) {}
 
   ngOnInit() {
+    this.loadMeetings();
     const userId = localStorage.getItem('_id');
     if (userId) {
       this.authService.getUserDashboard(userId).subscribe({
@@ -30,5 +32,17 @@ export class Dashboard implements OnInit {
     } else {
       console.warn('⚠️ No se encontró el ID del usuario');
     }
+  }
+
+  loadMeetings() {
+    this.authService.getMeetings().subscribe({
+      next: (data) => {
+        this.meetings = data;
+        console.log('Reuniones:', data);
+      },
+      error: (err) => {
+        console.error('Error al obtener reuniones:', err);
+      },
+    });
   }
 }

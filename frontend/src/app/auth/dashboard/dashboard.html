@@ -83,18 +83,22 @@
         <p>📅</p>
       </div>
       <div class="lista-scroll">
-        <ul>
-          <li>Elemento 1</li>
-          <li>Elemento 2</li>
-          <li>Elemento 3</li>
-          <li>Elemento 4</li>
-          <li>Elemento 5</li>
-          <li>Elemento 6</li>
-          <li>Elemento 7</li>
-          <li>Elemento 8</li>
-          <li>Elemento 9</li>
-          <li>Elemento 10</li>
-        </ul>
+        <div class="meetings-list">
+          <div *ngFor="let m of meetings" class="meeting-card">
+            <div class="time">
+              <p>{{ m.date | date }}</p>
+              <p>
+                <strong>{{ m.time }}</strong>
+              </p>
+            </div>
+            <div class="descripcion">
+              <p>
+                {{ m.description }}
+              </p>
+              <p class="platform">{{ m.platform }}</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

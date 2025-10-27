@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const meetingSchema = new mongoose.Schema(
   {
-    _id: {
+    user: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,

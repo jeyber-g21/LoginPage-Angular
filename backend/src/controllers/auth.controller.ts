@@ -199,7 +199,7 @@ export const createMeeting = async (req, res) => {
     const { description, platform, date, time } = req.body;
 
     const meeting = new Meeting({
-      _id: req.userId, // <- viene del JWT
+      user: req.userId, // <- viene del JWT
       description,
       platform,
       date,
@@ -215,7 +215,7 @@ export const createMeeting = async (req, res) => {
 // GET MEETINGS
 export const getUserMeetings = async (req, res) => {
   try {
-    const meetings = await Meeting.find({ _id: req.userId });
+    const meetings = await Meeting.find({ user: req.userId });
     res.json(meetings);
   } catch (error) {
     res.status(500).json({ message: "Error fetching meetings" });

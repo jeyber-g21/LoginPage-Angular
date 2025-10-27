@@ -21,10 +21,18 @@
 
   <div class="meetings-list">
     <div *ngFor="let m of meetings" class="meeting-card">
-      <h3>{{ m.description }}</h3>
-      <p><strong>Plataforma:</strong> {{ m.platform }}</p>
-      <p><strong>Fecha:</strong> {{ m.date | date }}</p>
-      <p><strong>Hora:</strong> {{ m.time }}</p>
+      <div class="time">
+        <p>{{ m.date | date }}</p>
+        <p>
+          <strong>{{ m.time }}</strong>
+        </p>
+      </div>
+      <div class="descripcion">
+        <p>
+          {{ m.description }}
+        </p>
+        <p class="platform">{{ m.platform }}</p>
+      </div>
     </div>
   </div>
 </div>
