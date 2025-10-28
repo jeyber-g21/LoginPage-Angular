@@ -8,14 +8,10 @@
   <button class="menu-btn" (click)="toggleMenu()">☰</button>
 
   <nav class="nav-links" [class.open]="menuOpen">
-    <a routerLink="/home" routerLinkActive="active" (click)="closeMenu()"
-      >Inicio</a
-    >
-    <a routerLink="/about" routerLinkActive="active" (click)="closeMenu()"
-      >Nosotros</a
-    >
-    <a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()"
-      >Contacto</a
+    <a routerLink="/home" routerLinkActive="active">Inicio</a>
+    <a routerLink="/about" routerLinkActive="active">Nosotros</a>
+    <a routerLink="/contact" routerLinkActive="active" (click)="logout()"
+      >Logout</a
     >
   </nav>
 </header>

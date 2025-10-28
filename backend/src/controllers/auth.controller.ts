@@ -5,6 +5,7 @@ import { generateToken } from "../utils/generateToken";
 import jwt from "jsonwebtoken";
 import nodemailer from "nodemailer";
 import Meeting from "../models/meeting.model";
+import Task from "../models/task.model";
 
 //  REGISTER USER
 export const registerUser = async (
@@ -220,4 +221,52 @@ export const getUserMeetings = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: "Error fetching meetings" });
   }
+};
+// CREATE TASK
+export const createTask = async (req, res) => {
+  try {
+    const { title } = req.body;
+
+    const task = new Task({
+      user: req.userId, // <- viene del JWT
+      title,
+    });
+
+    await task.save();
+    res.status(201).json({ message: "Meeting created successfully", task });
+  } catch (error) {
+    res.status(500).json({ message: "Error creating meeting", error });
+  }
+};
+// GET TASKS
+export const getUserTasks = async (req, res) => {
+  try {
+    const tasks = await Task.find({ user: req.userId });
+    res.json(tasks);
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching tasks" });
+  }
+};
+// PUT CHECKBOX
+export const putCheckbox = async (req, res) => {
+  const task = await Task.findById(req.params.id);
+  if (!task) return res.status(404).json({ message: "Tarea no encontrada" });
+
+  if (task.user.toString() !== req.userId)
+    return res.status(401).json({ message: "No autorizado" });
+
+  task.completed = !task.completed;
+  await task.save();
+  res.json(task);
+};
+// DELETE TASK
+export const deleteTask = async (req, res) => {
+  const task = await Task.findById(req.params.id);
+  if (!task) return res.status(404).json({ message: "Tarea no encontrada" });
+
+  if (task.user.toString() !== req.userId)
+    return res.status(401).json({ message: "No autorizado" });
+
+  await task.deleteOne();
+  res.json({ message: "Tarea eliminada" });
 };

@@ -84,4 +84,57 @@ export class Auth {
       withCredentials: true,
     });
   }
+
+  getTasks(): Observable<any> {
+    const token = localStorage.getItem('token'); // <-- Obtener el token del usuario
+
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`, // <-- Enviar token al backend
+    });
+
+    // Llamada protegida con token + credenciales
+    return this.http.get(`${this.apiUrl}/tasks`, {
+      headers,
+      withCredentials: true,
+    });
+  }
+
+  toggleTask(id: string): Observable<any> {
+    const token = localStorage.getItem('token'); // <-- Obtener el token del usuario
+
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`, // <-- Enviar token al backend
+    });
+    return this.http.put(
+      `${this.apiUrl}/${id}`,
+      {},
+      {
+        headers,
+      }
+    );
+  }
+  deleteTask(id: string): Observable<any> {
+    const token = localStorage.getItem('token'); // <-- Obtener el token del usuario
+
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`, // <-- Enviar token al backend
+    });
+    return this.http.delete(`${this.apiUrl}/${id}`, {
+      headers,
+    });
+  }
+
+  // addTask(title: string): Observable<any> {
+  //   const token = localStorage.getItem('token');
+
+  //   // ✅ AÑADIR TOKEN EN EL HEADER
+  //   const headers = new HttpHeaders({
+  //     'Content-Type': 'application/json',
+  //     Authorization: `Bearer ${token}`,
+  //   });
+  //   return this.http.post(`${this.apiUrl}/create-task`, title, {
+  //     headers,
+  //     withCredentials: true,
+  //   });
+  // }
 }

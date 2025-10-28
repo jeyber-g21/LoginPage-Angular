@@ -6,6 +6,7 @@ import { ResetPassword } from './auth/reset-password/reset-password';
 import { AuthGuard } from './auth/auth-guard';
 import { Dashboard } from './auth/dashboard/dashboard';
 import { Meeting } from './auth/meeting/meeting';
+import { TasksComponent } from './auth/create-tasks/create-tasks';
 export const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: Login },
@@ -13,5 +14,6 @@ export const routes: Routes = [
   { path: 'forgot-password', component: ForgotPassword },
   { path: 'reset-password', component: ResetPassword },
   { path: 'meeting', component: Meeting, canActivate: [AuthGuard] },
+  { path: 'create-task', component: TasksComponent, canActivate: [AuthGuard] },
   { path: 'dashboard/:id', component: Dashboard, canActivate: [AuthGuard] },
 ];
