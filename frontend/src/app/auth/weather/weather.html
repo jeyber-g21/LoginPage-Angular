@@ -1,0 +1,14 @@
+<p>weather works!</p>
+<div class="weather-container" *ngIf="weatherData">
+  <h2>{{ weatherData.name }}, {{ weatherData.sys.country }}</h2>
+  <p class="description">
+    {{ weatherData.weather[0].description | titlecase }}
+  </p>
+  <p class="temp">🌡️ {{ weatherData.main.temp }} °C</p>
+  <p>💧 Humedad: {{ weatherData.main.humidity }}%</p>
+
+  <div class="search">
+    <input type="text" [(ngModel)]="city" placeholder="Buscar ciudad..." />
+    <button (click)="getWeatherByCity(city)">Buscar</button>
+  </div>
+</div>

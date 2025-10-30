@@ -1,0 +1,45 @@
+.weather-container {
+  background: linear-gradient(135deg, #6dd5fa, #2980b9);
+  color: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  width: 260px;
+  margin: 20px auto;
+  font-family: "Poppins", sans-serif;
+}
+
+.weather-container h2 {
+  margin-bottom: 5px;
+}
+
+.description {
+  text-transform: capitalize;
+  margin-bottom: 10px;
+}
+
+.search {
+  margin-top: 15px;
+}
+
+input {
+  padding: 6px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+}
+
+button {
+  margin-left: 5px;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 8px;
+  background: #ffffff55;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #ffffff88;
+}

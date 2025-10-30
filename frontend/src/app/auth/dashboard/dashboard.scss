@@ -43,11 +43,13 @@
 ///////////
 .container-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* primera más ancha */
+  grid-template-columns: 1fr 1fr; /* primera más ancha */
+
   gap: 1rem;
   padding: 1rem;
   justify-content: center;
   align-items: start;
+  background-color: purple;
 }
 
 .card:hover {
@@ -72,10 +74,13 @@
     0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
 }
 /* Colores solo para distinguir */
+
 .card1 {
   background: #f8f9fa;
-  grid-column: 1/2;
+
   color: black;
+  height: 300px;
+  width: 350px;
 }
 .card1 .profile {
   display: flex;
@@ -127,15 +132,28 @@
   line-height: 1rem;
   color: rgba(156, 163, 175, 1);
 }
+.col2 {
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
 .card2 {
   background: linear-gradient(45deg, #c0c0f0 0%, #ececec 50%, #f9b164 100%);
   color: black;
+  width: 350px;
+  height: 300px;
+  margin-bottom: 20px;
 }
 .card2 .profile {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 0;
+  margin-top: 0;
+  height: 45px;
 }
 .card2 .profile p {
   margin-right: 0;
@@ -146,24 +164,41 @@
   border: none;
   color: black;
   font-size: 1.5rem;
-  padding: 8px 12px;
-  border-radius: 8px;
+  padding: 0px 10px;
+  border-radius: 6px;
   margin-right: 15px;
   margin-left: 0;
   width: 22px;
 }
 .card2 .num-tasks {
-  display: flex;
-  flex-direction: column;
-  margin-left: 15px;
-  margin-top: 30px;
-}
-.card2 .num-tasks p {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 13px;
+  border-top: 1px solid black;
+  font-size: 0.8rem;
   margin-bottom: 0;
-  margin-top: 0;
+}
+.card2 .num-tasks .content-task {
+  grid-column: 2/4;
+}
+
+.card2 .num-tasks .rubish {
+  background-color: blue;
+  display: flex;
+  justify-content: center;
 }
 .card3 {
   background: #fdecea;
+}
+.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+button.delete {
+  border: none;
+  background: transparent;
+  cursor: pointer;
 }
 ////////////////////
 ///
@@ -242,10 +277,3 @@
 }
 
 /* La primera tarjeta puede ser más alta */
-.card1 {
-  height: 320px;
-  width: 350px;
-}
-.card2 {
-  height: 250px;
-}

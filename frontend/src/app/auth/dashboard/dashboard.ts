@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Auth } from '../auth.service';
 import { CommonModule } from '@angular/common';
+import { WeatherComponent } from '../weather/weather';
 @Component({
   selector: 'app-dashboard',
-  imports: [CommonModule],
+  imports: [CommonModule, WeatherComponent],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss',
 })
@@ -12,11 +13,13 @@ export class Dashboard implements OnInit {
   meetings: any[] = [];
   user: any;
   message: string = '';
+  tasks: any[] = [];
 
   constructor(private http: HttpClient, private authService: Auth) {}
 
   ngOnInit() {
     this.loadMeetings();
+    this.loadTasks();
     const userId = localStorage.getItem('_id');
     if (userId) {
       this.authService.getUserDashboard(userId).subscribe({
@@ -44,5 +47,22 @@ export class Dashboard implements OnInit {
         console.error('Error al obtener reuniones:', err);
       },
     });
+  }
+  loadTasks() {
+    this.authService.getTasks().subscribe({
+      next: (data) => {
+        this.tasks = data;
+        console.log('Tasks:', data);
+      },
+      error: (err) => {
+        console.error('Error al obtener reuniones:', err);
+      },
+    });
+  }
+  toggleTask(task: any) {
+    this.authService.toggleTask(task._id).subscribe(() => this.loadTasks());
+  }
+  deleteTask(task: any) {
+    this.authService.deleteTask(task._id).subscribe(() => this.loadTasks());
   }
 }

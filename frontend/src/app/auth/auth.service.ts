@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class Auth {
   private apiUrl = `${environment.apiUrl}/auth`;
+  private apiKey = 'e4ed3efe701fb94e99062c186f60fb09'; // 🔑 pon tu API key de OpenWeatherMap
+  private baseUrl = 'https://api.openweathermap.org/data/2.5/weather';
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -122,6 +124,15 @@ export class Auth {
     return this.http.delete(`${this.apiUrl}/${id}`, {
       headers,
     });
+  }
+  getWeatherByCity(city: string): Observable<any> {
+    const url = `${this.baseUrl}?q=${city}&appid=${this.apiKey}&units=metric&lang=es`;
+    return this.http.get(url);
+  }
+
+  getWeatherByCoords(lat: number, lon: number): Observable<any> {
+    const url = `${this.baseUrl}?lat=${lat}&lon=${lon}&appid=${this.apiKey}&units=metric&lang=es`;
+    return this.http.get(url);
   }
 
   // addTask(title: string): Observable<any> {

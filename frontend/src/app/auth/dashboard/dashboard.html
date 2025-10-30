@@ -47,34 +47,28 @@
               <p>Prioritazed tasks</p>
               <p class="term-icon">⏱</p>
             </div>
-
+            @for (task of tasks; track $index){
             <div class="num-tasks">
-              <p style="font-size: 2rem">
-                <strong>Numero tasks</strong>
-              </p>
-              <p>
-                <strong>tasks completed</strong>
-              </p>
+              <div class="checkbox">
+                <input
+                  type="checkbox"
+                  [checked]="task.completed"
+                  (change)="toggleTask(task)"
+                />
+              </div>
+              <div class="content-task">
+                <span [class.completed]="task.completed">{{ task.title }}</span>
+              </div>
+              <div class="rubish">
+                <button class="delete" (click)="deleteTask(task)">🗑️</button>
+              </div>
             </div>
+            }
           </div>
         </div>
-        <div class="col3">
-          <div class="card card2">
-            <div class="profile">
-              <p>Additional tasks</p>
-              <p class="term-icon">⏱</p>
-            </div>
-
-            <div class="num-tasks">
-              <p style="font-size: 2rem">
-                <strong>Numbero tasks</strong>
-              </p>
-              <p>
-                <strong>tasks completed</strong>
-              </p>
-            </div>
-          </div>
-        </div>
+      </div>
+      <div class="" style="background-color: blue">
+        <app-weather></app-weather>
       </div>
     </div>
     <div class="right">
