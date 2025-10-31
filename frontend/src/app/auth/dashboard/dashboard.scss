@@ -8,12 +8,12 @@
 
 .container {
   display: grid;
-  grid-template-columns: 2fr 1fr; /* izquierda más ancha */
-  background: rgba(255, 255, 255, 0.1);
+  grid-template-columns: 1fr 1fr; /* izquierda más ancha */
+  // background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px); /* efecto de desenfoque */
   -webkit-backdrop-filter: blur(10px);
   height: 100vh;
-  margin-top: 80px;
+  margin-top: 65px;
   width: 90%;
   padding: 2rem;
   border-radius: 12px;
@@ -50,6 +50,7 @@
   justify-content: center;
   align-items: start;
   background-color: purple;
+  margin-bottom: 0;
 }
 
 .card:hover {
@@ -63,7 +64,7 @@
   background: white;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  height: 200px;
+  height: 320px;
   display: flex;
   flex-direction: column;
   font-weight: 600;
@@ -79,8 +80,8 @@
   background: #f8f9fa;
 
   color: black;
-  height: 300px;
-  width: 350px;
+
+  width: 450px;
 }
 .card1 .profile {
   display: flex;
@@ -133,18 +134,18 @@
   color: rgba(156, 163, 175, 1);
 }
 .col2 {
-  background-color: red;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom: 0;
 }
 
 .card2 {
   background: linear-gradient(45deg, #c0c0f0 0%, #ececec 50%, #f9b164 100%);
   color: black;
-  width: 350px;
-  height: 300px;
+  width: 450px;
+
   margin-bottom: 20px;
 }
 .card2 .profile {
@@ -208,6 +209,12 @@ button.delete {
   justify-content: space-around;
   margin-left: 10px;
   margin-right: 10px;
+  background: rgba(255, 255, 255, 0.15);
+  width: 430px; /* ancho del contenedor */
+  border-left: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  border-radius: 1rem;
+  border-right: 1px solid #ddd;
 }
 .right .header-right h2 {
   color: white;
@@ -215,7 +222,7 @@ button.delete {
 
 .lista-scroll {
   width: 430px; /* ancho del contenedor */
-  height: 300px; /* alto fijo */
+  height: 432px; /* alto fijo */
   overflow-y: auto; /* activa scroll vertical */
 
   margin-left: 10px;
@@ -260,19 +267,248 @@ button.delete {
   font-size: 0.75rem;
 }
 
-@media (max-width: 1024px) {
-  .container-grid {
-    grid-template-columns: 1.5fr 1fr; /* 2 columnas */
+// @media (max-width: 1024px) {
+//   .container-grid {
+//     grid-template-columns: 1fr 1fr; /* 2 columnas */
+//   }
+// }
+@media (min-width: 851px) and (max-width: 1024px) {
+  //DASHBOARD
+
+  .container {
+    grid-template-columns: 1fr; /* una debajo de otra */
+  }
+  .card {
+    width: 375px;
+  }
+
+  .left {
+    width: 830px;
+  }
+  .left .col1 {
+    align-items: center;
+  }
+  .right {
+    align-items: center;
+    margin-top: 30px;
+  }
+  .right .header-right,
+  .lista-scroll {
+    width: 695px;
   }
 }
+@media (min-width: 801px) and (max-width: 851px) {
+  //DASHBOARD
 
-@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr; /* una debajo de otra */
+  }
+  .card {
+    width: 375px;
+  }
+
+  .left {
+    width: 780px;
+  }
+  .right {
+    align-items: center;
+    margin-top: 30px;
+  }
+  .right .header-right,
+  .lista-scroll {
+    width: 695px;
+  }
+}
+@media (min-width: 750px) and (max-width: 801px) {
+  //DASHBOARD
+
+  .container {
+    grid-template-columns: 1fr; /* una debajo de otra */
+  }
+  .card {
+    width: 350px;
+  }
+
+  .left {
+    width: 735px;
+    margin-bottom: 0;
+  }
+  .right {
+    align-items: center;
+    margin-top: 30px;
+  }
+  .right .header-right,
+  .lista-scroll {
+    width: 695px;
+  }
+}
+@media (min-width: 720px) and (max-width: 750px) {
+  //DASHBOARD
+
+  .container {
+    grid-template-columns: 1fr; /* una debajo de otra */
+  }
+  .card,
+  .col2 {
+    width: 340px;
+  }
+  .left {
+    width: 680px;
+  }
+
+  .right {
+    margin-top: 30px;
+  }
+  .right .header-right,
+  .lista-scroll {
+    width: 660px;
+  }
+}
+@media (min-width: 650px) and (max-width: 720px) {
+  //DASHBOARD
   .container-grid {
     grid-template-columns: 1fr; /* una debajo de otra */
   }
-
-  .card {
-    height: 220px;
+  .container {
+    grid-template-columns: 1fr; /* una debajo de otra */
+  }
+  .card,
+  .col2,
+  .left {
+    width: 645px;
+  }
+  .right {
+    margin-top: 30px;
+  }
+  .right .header-right,
+  .lista-scroll {
+    width: 625px;
+  }
+}
+@media (min-width: 550px) and (max-width: 650px) {
+  //DASHBOARD
+  .container-grid {
+    grid-template-columns: 1fr; /* una debajo de otra */
+  }
+  .container {
+    grid-template-columns: 1fr; /* una debajo de otra */
+  }
+  .card,
+  .col2,
+  .left {
+    width: 545px;
+  }
+  .right {
+    margin-top: 30px;
+  }
+  .right .header-right,
+  .lista-scroll {
+    width: 525px;
+  }
+}
+@media (min-width: 505px) and (max-width: 550px) {
+  //DASHBOARD
+  .container-grid {
+    grid-template-columns: 1fr; /* una debajo de otra */
+  }
+  .container {
+    grid-template-columns: 1fr; /* una debajo de otra */
+  }
+  .card,
+  .col2,
+  .left {
+    width: 499px;
+  }
+  .right {
+    margin-top: 30px;
+  }
+  .right .header-right,
+  .lista-scroll {
+    width: 479px;
+  }
+}
+@media (min-width: 451px) and (max-width: 505px) {
+  //DASHBOARD
+  .container-grid {
+    grid-template-columns: 1fr; /* una debajo de otra */
+  }
+  .container {
+    grid-template-columns: 1fr; /* una debajo de otra */
+  }
+  .card,
+  .col2,
+  .left {
+    width: 445px;
+  }
+  .right {
+    margin-top: 30px;
+  }
+  .right .header-right,
+  .lista-scroll {
+    width: 425px;
+  }
+}
+@media (min-width: 413px) and (max-width: 451px) {
+  //DASHBOARD
+  .container-grid {
+    grid-template-columns: 1fr; /* una debajo de otra */
+  }
+  .container {
+    grid-template-columns: 1fr; /* una debajo de otra */
+  }
+  .card,
+  .col2,
+  .left {
+    width: 407px;
+  }
+  .right {
+    margin-top: 30px;
+  }
+  .right .header-right,
+  .lista-scroll {
+    width: 387px;
+  }
+}
+@media (min-width: 376px) and (max-width: 413px) {
+  //DASHBOARD
+  .container-grid {
+    grid-template-columns: 1fr; /* una debajo de otra */
+  }
+  .container {
+    grid-template-columns: 1fr; /* una debajo de otra */
+  }
+  .card,
+  .col2,
+  .left {
+    width: 370px;
+  }
+  .right {
+    margin-top: 30px;
+  }
+  .right .header-right,
+  .lista-scroll {
+    width: 350px;
+  }
+}
+@media (max-width: 376px) {
+  //DASHBOARD
+  .container-grid {
+    grid-template-columns: 1fr; /* una debajo de otra */
+  }
+  .container {
+    grid-template-columns: 1fr; /* una debajo de otra */
+  }
+  .card,
+  .col2,
+  .left {
+    width: 360px;
+  }
+  .right {
+    margin-top: 30px;
+  }
+  .right .header-right,
+  .lista-scroll {
+    width: 340px;
   }
 }
 
