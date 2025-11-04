@@ -4,10 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpHeaders } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
+import { Header } from '../header/header';
 
 @Component({
   selector: 'app-tasks',
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, Header],
   templateUrl: './create-tasks.html',
   styleUrls: ['./create-tasks.scss'],
 })

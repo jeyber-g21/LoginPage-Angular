@@ -10,9 +10,9 @@
   display: grid;
   grid-template-columns: 1fr 1fr; /* izquierda más ancha */
   // background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px); /* efecto de desenfoque */
-  -webkit-backdrop-filter: blur(10px);
-  height: 100vh;
+  // backdrop-filter: blur(10px);
+  // -webkit-backdrop-filter: blur(10px);
+  height: 100%;
   margin-top: 65px;
   width: 90%;
   padding: 2rem;
@@ -22,7 +22,6 @@
 .left {
   color: black;
   display: flex;
-
   flex-direction: column;
 }
 
@@ -49,7 +48,7 @@
   padding: 1rem;
   justify-content: center;
   align-items: start;
-  background-color: purple;
+
   margin-bottom: 0;
 }
 
@@ -184,7 +183,6 @@
 }
 
 .card2 .num-tasks .rubish {
-  background-color: blue;
   display: flex;
   justify-content: center;
 }
@@ -215,6 +213,7 @@ button.delete {
   border-bottom: 1px solid #ddd;
   border-radius: 1rem;
   border-right: 1px solid #ddd;
+  align-items: center;
 }
 .right .header-right h2 {
   color: white;
@@ -272,7 +271,35 @@ button.delete {
 //     grid-template-columns: 1fr 1fr; /* 2 columnas */
 //   }
 // }
-@media (min-width: 851px) and (max-width: 1024px) {
+@media (min-width: 980px) and (max-width: 1025px) {
+  //DASHBOARD
+
+  .container {
+    grid-template-columns: 1fr; /* una debajo de otra */
+  }
+
+  .card {
+    width: 375px;
+  }
+  .card1 {
+    margin-right: 4rem;
+  }
+  .left {
+    width: 920px;
+  }
+  .left .col1 {
+    align-items: center;
+  }
+  .right {
+    align-items: center;
+    margin-top: 2rem;
+  }
+  .right .header-right,
+  .lista-scroll {
+    width: 695px;
+  }
+}
+@media (min-width: 851px) and (max-width: 980px) {
   //DASHBOARD
 
   .container {

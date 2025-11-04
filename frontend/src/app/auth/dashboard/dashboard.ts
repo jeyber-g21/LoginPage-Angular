@@ -3,9 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { Auth } from '../auth.service';
 import { CommonModule } from '@angular/common';
 import { WeatherComponent } from '../weather/weather';
+import { Header } from '../header/header';
+import { RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-dashboard',
-  imports: [CommonModule, WeatherComponent],
+  imports: [CommonModule, WeatherComponent, Header, RouterModule],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss',
 })

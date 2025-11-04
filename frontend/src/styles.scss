@@ -9,7 +9,7 @@ body {
   // font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   background-image: url("./assets/background-picture.png"); /* coloca tu imagen aquí */
   background-size: cover; /* que ocupe toda la pantalla */
@@ -17,4 +17,14 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed; /* opcional: efecto parallax */
   font-family: "Poppins", sans-serif;
+}
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Hace que el contenido crezca y empuje el footer hacia abajo */
+.main-content {
+  flex: 1;
 }

@@ -5,10 +5,11 @@ import { CommonModule } from '@angular/common';
 import { Auth } from '../auth.service';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Header } from '../header/header';
 
 @Component({
   selector: 'app-meeting',
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, Header],
   templateUrl: './meeting.html',
   styleUrl: './meeting.scss',
 })

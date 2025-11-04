@@ -19,7 +19,15 @@ export class Header {
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
   }
-
+  goToDashboard() {
+    const userId = localStorage.getItem('_id');
+    console.log(userId);
+    if (userId) {
+      this.router.navigate(['/dashboard', userId]);
+    } else {
+      alert('No se encontró el usuario, por favor inicia sesión.');
+    }
+  }
   logout() {
     // Elimina datos del almacenamiento local
     localStorage.removeItem('token');

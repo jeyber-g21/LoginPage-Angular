@@ -6,6 +6,7 @@
     <p><strong>ID de usuario:</strong> {{ user._id }}</p>
   </div>
 </div> -->
+<app-header></app-header>
 <div class="dashboard">
   <div class="container">
     <div class="left">
@@ -44,7 +45,21 @@
         <div class="col2">
           <div class="card card2">
             <div class="profile">
-              <p>Prioritazed tasks</p>
+              <div
+                style="
+                  display: flex;
+                  flex-direction: row;
+                  align-items: center;
+                  gap: 1rem;
+                "
+              >
+                <p>Prioritazed tasks</p>
+                <a
+                  routerLink="/create-task"
+                  style="text-decoration: none !important"
+                  >↗️</a
+                >
+              </div>
               <p class="term-icon">⏱</p>
             </div>
             @for (task of tasks; track $index){
@@ -67,13 +82,26 @@
           </div>
         </div>
       </div>
-      <div class="" style="background-color: blue">
+      <div class="">
         <app-weather></app-weather>
       </div>
     </div>
     <div class="right">
       <div class="header-right">
-        <h2>My meetings</h2>
+        <div
+          style="
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 1rem;
+          "
+        >
+          <h2>My meetings</h2>
+          <a routerLink="/meeting" style="text-decoration: none !important"
+            >↗️</a
+          >
+        </div>
+
         <p>📅</p>
       </div>
       <div class="lista-scroll">

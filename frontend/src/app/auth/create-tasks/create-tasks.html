@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div class="tasks-container">
   <h2>Mis tareas</h2>
 
@@ -10,15 +11,22 @@
     <button (click)="addTask()">Agregar</button>
   </div>
   <h2>Task list</h2>
-  <ul>
-    <li *ngFor="let task of tasks">
+
+  @for (task of tasks; track $index){
+  <div class="num-tasks">
+    <div class="checkbox">
       <input
         type="checkbox"
         [checked]="task.completed"
         (change)="toggleTask(task)"
       />
+    </div>
+    <div class="content-task">
       <span [class.completed]="task.completed">{{ task.title }}</span>
+    </div>
+    <div class="rubish">
       <button class="delete" (click)="deleteTask(task)">🗑️</button>
-    </li>
-  </ul>
+    </div>
+  </div>
+  }
 </div>

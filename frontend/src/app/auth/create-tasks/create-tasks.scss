@@ -33,25 +33,21 @@
   font-weight: 600;
 }
 
-ul {
+.num-tasks {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  padding: 13px;
+  border-top: 1px solid black;
+  font-size: 0.8rem;
+  margin-bottom: 0;
+}
+.num-tasks .content-task {
+  grid-column: 2/4;
 }
 
-li {
+.num-tasks .rubish {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  margin: 0;
-  padding: 0;
-  background: rgba(255, 255, 255, 0.15);
-  padding: 1rem;
-  border-left: 1px solid #ddd;
-  color: white;
-  border-bottom: 1px solid #ddd;
-  margin-bottom: 10px;
-  border-radius: 1rem;
+  justify-content: center;
 }
 
 .completed {
