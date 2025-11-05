@@ -8,8 +8,11 @@ import { Dashboard } from './auth/dashboard/dashboard';
 import { Meeting } from './auth/meeting/meeting';
 import { WeatherComponent } from './auth/weather/weather';
 import { TasksComponent } from './auth/create-tasks/create-tasks';
+import { Home } from './auth/home/home';
 export const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  // { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', component: Home },
+  { path: 'home', component: Home },
   { path: 'login', component: Login },
   { path: 'weather', component: WeatherComponent },
   { path: 'register', component: Register },

@@ -18,6 +18,9 @@ export class TasksComponent implements OnInit {
   task = {
     title: '',
   };
+  message = '';
+  type: 'success' | 'error' | 'info' = 'info';
+  toastVisible = false;
 
   constructor(private http: HttpClient, private authService: Auth) {}
 
@@ -61,14 +64,25 @@ export class TasksComponent implements OnInit {
         next: (res) => {
           //this.successMessage = '';
           console.log('task guardada');
+          this.loadTasks();
+          this.showToast('Meeting saved successfully', 'success');
           // setTimeout(() => {
           //   this.router.navigate(['/login']);
           // }, 4000);
         },
         error: (err) => {
           console.log(err);
+          this.showToast(err.status + ': ' + err.error.message, 'error');
         },
       });
+  }
+  showToast(msg: string, type: 'success' | 'error' | 'info') {
+    this.message = msg;
+    this.type = type;
+    this.toastVisible = true;
+    setTimeout(() => {
+      this.toastVisible = false;
+    }, 4000);
   }
 
   // toggleTask(task: any) {

@@ -37,3 +37,8 @@
     </div>
   </div>
 </div>
+<div class="toast" *ngIf="toastVisible" [ngClass]="[type]">
+  <div class="toast-content">
+    {{ message }}
+  </div>
+</div>

@@ -38,7 +38,7 @@ export class Header {
     // localStorage.clear();
 
     // Redirige al login
-    this.router.navigate(['/login']);
+    this.router.navigate(['/home']);
   }
 
   @HostListener('window:scroll')

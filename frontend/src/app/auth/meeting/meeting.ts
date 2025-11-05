@@ -21,6 +21,9 @@ export class Meeting {
     date: '',
     time: '',
   };
+  message = '';
+  type: 'success' | 'error' | 'info' = 'info';
+  toastVisible = false;
 
   constructor(private http: HttpClient, private authService: Auth) {}
 
@@ -57,14 +60,25 @@ export class Meeting {
         next: (res) => {
           //this.successMessage = '';
           console.log('meeting guardada');
+          this.loadMeetings();
+          this.showToast('Meeting saved successfully', 'success');
           // setTimeout(() => {
           //   this.router.navigate(['/login']);
           // }, 4000);
         },
         error: (err) => {
           console.log(err);
+          this.showToast(err.status + ': ' + err.error.message, 'error');
         },
       });
+  }
+  showToast(msg: string, type: 'success' | 'error' | 'info') {
+    this.message = msg;
+    this.type = type;
+    this.toastVisible = true;
+    setTimeout(() => {
+      this.toastVisible = false;
+    }, 4000);
   }
 }
 
