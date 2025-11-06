@@ -1,23 +1,23 @@
 <app-header></app-header>
 <div class="meetings-container">
-  <h2>Mis Reuniones</h2>
+  <h2>My meetings</h2>
 
   <form (ngSubmit)="addMeeting()">
     <input
       [(ngModel)]="meeting.description"
       name="description"
-      placeholder="Descripción corta"
+      placeholder="Short description"
       required
     />
     <input
       [(ngModel)]="meeting.platform"
       name="platform"
-      placeholder="Plataforma (Zoom, Meet...)"
+      placeholder="Plataform (Zoom, Meet...)"
       required
     />
     <input [(ngModel)]="meeting.date" type="date" name="date" required />
     <input [(ngModel)]="meeting.time" type="time" name="time" required />
-    <button type="submit">Guardar reunión</button>
+    <button type="submit">Save meeting</button>
   </form>
 
   <div class="meetings-list">

@@ -1,14 +1,14 @@
 <header class="main-header">
   <div class="logo-container">
-    <img src="" alt="Logo" class="logo" />
-    <h1 class="title">Mi Aplicación</h1>
+    <img src="logo2_app.png" alt="Logo" class="logo" />
+    <a (click)="goToDashboard()"><h1 class="title">Application</h1></a>
   </div>
 
   <!-- Botón Hamburguesa -->
   <button class="menu-btn" (click)="toggleMenu()">☰</button>
 
   <nav class="nav-links" [class.open]="menuOpen">
-    <a routerLinkActive="active" (click)="goToDashboard()">Inicio</a>
+    <a routerLinkActive="active" (click)="goToDashboard()">Dashboard</a>
     <a routerLink="/meeting">Meetings</a>
     <a routerLink="/create-task">Tasks</a>
     <a routerLink="/contact" routerLinkActive="active" (click)="logout()"

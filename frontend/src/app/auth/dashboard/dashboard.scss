@@ -122,15 +122,14 @@
 }
 .card1 .nombre-profile .p2 {
   height: 20px;
-  background-color: black;
 
-  margin-top: -1rem;
+  margin-top: -0.5rem;
   padding: 7px;
   border-radius: 50%;
 
   font-size: 0.75rem;
   line-height: 1rem;
-  color: rgba(156, 163, 175, 1);
+  color: black;
 }
 .col2 {
   display: flex;
@@ -141,8 +140,11 @@
 }
 
 .card2 {
-  background: linear-gradient(45deg, #c0c0f0 0%, #ececec 50%, #f9b164 100%);
-  color: black;
+  // background: linear-gradient(45deg, #c0c0f0 0%, #ececec 50%, #f9b164 100%);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border-radius: 1rem;
+  border: 0.3px solid #ddd;
   width: 450px;
 
   margin-bottom: 20px;
@@ -160,9 +162,9 @@
   margin-left: 15px;
 }
 .card2 .profile .term-icon {
-  background: rgba(12, 8, 8, 0.1);
+  // background: rgba(12, 8, 8, 0.1);
   border: none;
-  color: black;
+  color: whitesmoke;
   font-size: 1.5rem;
   padding: 0px 10px;
   border-radius: 6px;
@@ -174,7 +176,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   padding: 13px;
-  border-top: 1px solid black;
+  border-top: 1px solid rgb(198, 190, 190);
   font-size: 0.8rem;
   margin-bottom: 0;
 }
