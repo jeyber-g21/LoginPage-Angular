@@ -1,6 +1,6 @@
 # 🌟 **JG Application — Smart Daily Dashboard**
 
-![Logo](./frontend/src/assets/homePage.png)
+![Logo](./client/src/assets/homePage.png)
 
 ## 🧠 Overview
 
@@ -43,7 +43,7 @@ It allows users to manage **personal tasks**, **meetings**, and view **real-time
 - **Route protection** on both frontend and backend.
 - Secure communication with **custom CORS configuration**.
 
-![Login](./frontend/src/assets/authLoginRegister.png)
+![Login](./client/src/assets/authLoginRegister.png)
 
 ---
 
@@ -54,7 +54,7 @@ It allows users to manage **personal tasks**, **meetings**, and view **real-time
 - Data validation and error handling.
 - Visually integrated into the dashboard.
 
-![Meeting](./frontend/src/assets/meeting.png)
+![Meeting](./client/src/assets/meeting.png)
 
 ---
 
@@ -65,7 +65,7 @@ It allows users to manage **personal tasks**, **meetings**, and view **real-time
 - Minimalist design with smooth animations.
 - Data persistence per user.
 
-![Tasks](./frontend/src/assets/tasksPage.png)
+![Tasks](./client/src/assets/tasksPage.png)
 
 ---
 
@@ -75,7 +75,7 @@ It allows users to manage **personal tasks**, **meetings**, and view **real-time
 - Displays temperature, humidity, and general conditions.
 - Integrated with the **OpenWeatherMap API**.
 
-![WeatherComponent](./frontend/src/assets/weatherPage.png)
+![WeatherComponent](./client/src/assets/weatherPage.png)
 
 ---
 
@@ -89,7 +89,7 @@ It allows users to manage **personal tasks**, **meetings**, and view **real-time
 - **Dynamic dashboard** per user (`userId`).
 - Responsive, modern, and elegant design.
 
-## ![Dashboard](./frontend/src/assets/dashboardPage.png)
+## ![Dashboard](./client/src/assets/dashboardPage.png)
 
 ## 🧱 **Project Structure**
 
