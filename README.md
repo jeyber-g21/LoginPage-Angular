@@ -1,6 +1,6 @@
 # 🌟 **JG Application — Smart Daily Dashboard**
 
-![Logo](src/assets/logo_app.png)
+![Logo](./frontend/src/assets/logo2_app.png)
 
 ## 🧠 Overview
 
