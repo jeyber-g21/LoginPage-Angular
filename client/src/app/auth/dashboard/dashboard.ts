@@ -19,7 +19,7 @@ export class Dashboard implements OnInit {
   tasks: any[] = [];
 
   constructor(private http: HttpClient, private authService: Auth) {}
-
+  // Inicio dashboard
   ngOnInit() {
     this.loadMeetings();
     this.loadTasks();
