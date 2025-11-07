@@ -121,15 +121,15 @@ backend/
 
 ### 🔧 Backend
 
-cd backend
-npm install
-npm run dev
+- cd backend
+- npm install
+- npm run dev
 
 ### 💻 Frontend
 
-cd frontend
-npm install
-ng serve
+- cd frontend
+- npm install
+- ng serve
 
 ---
 
@@ -139,6 +139,6 @@ ng serve
 
 Full Stack Developer | Angular + React + TypeScript + Python + Node.js + MongoDB + SQL/NoSQL
 
-📧 gomezjeyber@gmail.com
-🔗 Linkedin: https://www.linkedin.com/in/jeyber-adrian-gomez-g/
-| GitHub: https://github.com/jeyber-g21
+- 📧 gomezjeyber@gmail.com
+- 🔗 Linkedin: https://www.linkedin.com/in/jeyber-adrian-gomez-g/
+- GitHub: https://github.com/jeyber-g21
