@@ -7,9 +7,13 @@ import connectDB from "./config/db";
 dotenv.config();
 connectDB(); // <-- Conexión a MongoDB
 const app = express();
+const allowedOrigins = [
+  "http://localhost:4200",
+  "https://jgapplication.netlify.app",
+];
 app.use(
   cors({
-    origin: "http://localhost:4200", // <-- Especifica tu frontend
+    origin: allowedOrigins, // <-- Especifica tu frontend
     credentials: true, // <-- Permite el envío de cookies / headers de auth
   })
 );

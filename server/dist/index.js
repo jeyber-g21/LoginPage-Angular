@@ -11,8 +11,12 @@ const db_1 = __importDefault(require("./config/db"));
 dotenv_1.default.config();
 (0, db_1.default)(); // <-- Conexión a MongoDB
 const app = (0, express_1.default)();
+const allowedOrigins = [
+    "http://localhost:4200",
+    "https://jgapplication.netlify.app",
+];
 app.use((0, cors_1.default)({
-    origin: "http://localhost:4200", // <-- Especifica tu frontend
+    origin: allowedOrigins, // <-- Especifica tu frontend
     credentials: true, // <-- Permite el envío de cookies / headers de auth
 }));
 app.use(express_1.default.json());
