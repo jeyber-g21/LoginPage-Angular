@@ -1,6 +1,6 @@
 # 🌟 **JG Application — Smart Daily Dashboard**
 
-![Logo](./frontend/src/assets/logo2_app.png)
+![Logo](./frontend/src/assets/homePage.png)
 
 ## 🧠 Overview
 
@@ -18,7 +18,7 @@ It allows users to manage **personal tasks**, **meetings**, and view **real-time
 
 - **Angular 20**
 - **TypeScript**
-- **HTML5 / CSS3**
+- **HTML5 / SCSS**
 - **RxJS / HttpClient**
 - **Bootstrap / TailwindCSS**
 - **Router Guards (protected routes)**
@@ -43,6 +43,8 @@ It allows users to manage **personal tasks**, **meetings**, and view **real-time
 - **Route protection** on both frontend and backend.
 - Secure communication with **custom CORS configuration**.
 
+![Login](./frontend/src/assets/authLoginRegister.png)
+
 ---
 
 ### 📅 Meeting Module
@@ -51,6 +53,8 @@ It allows users to manage **personal tasks**, **meetings**, and view **real-time
 - Fields include description, platform (Zoom, Meet, Teams), date, and time.
 - Data validation and error handling.
 - Visually integrated into the dashboard.
+
+![Meeting](./frontend/src/assets/meeting.png)
 
 ---
 
@@ -61,6 +65,8 @@ It allows users to manage **personal tasks**, **meetings**, and view **real-time
 - Minimalist design with smooth animations.
 - Data persistence per user.
 
+![Tasks](./frontend/src/assets/tasksPage.png)
+
 ---
 
 ### 🌦️ Weather Module
@@ -68,6 +74,8 @@ It allows users to manage **personal tasks**, **meetings**, and view **real-time
 - **Real-time weather information** based on the user's city.
 - Displays temperature, humidity, and general conditions.
 - Integrated with the **OpenWeatherMap API**.
+
+![WeatherComponent](./frontend/src/assets/weatherPage.png)
 
 ---
 
@@ -81,7 +89,7 @@ It allows users to manage **personal tasks**, **meetings**, and view **real-time
 - **Dynamic dashboard** per user (`userId`).
 - Responsive, modern, and elegant design.
 
----
+## ![Dashboard](./frontend/src/assets/dashboardPage.png)
 
 ## 🧱 **Project Structure**
 
@@ -89,7 +97,7 @@ It allows users to manage **personal tasks**, **meetings**, and view **real-time
 frontend/
  ├── src/
  │   ├── app/
- │   │   ├── components/
+ │   │   ├── auth_components/
  │   │   ├── services/
  │   │   ├── guards/
  │   │   ├── models/
@@ -106,3 +114,31 @@ backend/
  │   └── config/
 
 ```
+
+---
+
+## **How to run the project**
+
+### 🔧 Backend
+
+cd backend
+npm install
+npm run dev
+
+### 💻 Frontend
+
+cd frontend
+npm install
+ng serve
+
+---
+
+## 🧑‍💻 Developed by
+
+### 👨‍💻 Jeyber Gómez
+
+Full Stack Developer | Angular + React + TypeScript + Python + Node.js + MongoDB + SQL/NoSQL
+
+📧 gomezjeyber@gmail.com
+🔗 Linkedin: https://www.linkedin.com/in/jeyber-adrian-gomez-g/
+| GitHub: https://github.com/jeyber-g21
