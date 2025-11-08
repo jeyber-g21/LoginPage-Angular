@@ -53,9 +53,13 @@ export class Meeting {
     console.log(token);
     console.log(this.meeting);
     this.http
-      .post('http://localhost:4000/api/auth/meeting', this.meeting, {
-        headers,
-      })
+      .post(
+        'https://loginpage-angular.onrender.com/api/auth/meeting',
+        this.meeting,
+        {
+          headers,
+        }
+      )
       .subscribe({
         next: (res) => {
           //this.successMessage = '';
