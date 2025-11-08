@@ -35,7 +35,7 @@ export class Register {
       !this.password ||
       !this.confirmPassword
     ) {
-      this.showToast('⚠️ Todos los campos son obligatorios', 'error');
+      this.showToast('⚠️ All fields are mandatory', 'error');
       console.log(this.confirmPassword);
       return;
     }
@@ -43,7 +43,7 @@ export class Register {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(this.email)) {
       this.showToast(
-        '📧 Por favor ingresa un correo válido (ejemplo@dominio.com)',
+        '📧 Please enter a valid email. (ejemplo@dominio.com)',
         'error'
       );
 
@@ -53,7 +53,7 @@ export class Register {
     const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/;
     if (!passwordRegex.test(this.password)) {
       this.showToast(
-        '🔒 La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un número',
+        '🔒 The password must be at least 8 characters long and include an uppercase letter, a lowercase letter, and a number.',
         'error'
       );
       return;
@@ -72,7 +72,7 @@ export class Register {
     this.authService.register(user).subscribe({
       next: (res) => {
         this.successMessage = '';
-        this.showToast('Usuario registrado con éxito ✅', 'success');
+        this.showToast('User registered successfully ✅', 'success');
         setTimeout(() => {
           this.router.navigate(['/login']);
         }, 4000);

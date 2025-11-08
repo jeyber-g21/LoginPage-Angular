@@ -39,7 +39,7 @@ export class Login {
               this.router.navigate([`/dashboard/${userId}`]);
             }, 4000);
           } else {
-            console.error('No se encontró el userId en localStorage');
+            console.error('userId is not in localStorage');
           }
         },
         error: (err) => {
