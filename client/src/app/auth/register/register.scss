@@ -102,11 +102,12 @@
 }
 .input2 {
   font-size: medium;
+  color: black !important;
 }
 
 .form label .input2 {
   background-color: white;
-  color: black;
+  color: black !important;
   width: 93%;
 
   border-radius: 0.375rem;
