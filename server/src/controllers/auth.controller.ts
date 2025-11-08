@@ -97,7 +97,7 @@ export const forgotPassword = async (req: Request, res: Response) => {
       },
     });
 
-    const resetLink = `https://jgapplication.netlify.app/reset-password?token=${token}`;
+    const resetLink = `http://localhost:4200/reset-password?token=${token}`;
 
     await transporter.sendMail({
       from: `"Soporte" <${process.env.EMAIL_USER}>`,
